@@ -1,0 +1,23 @@
+/* Si deseas refinar todavía más los estilos fuera de Tailwind */
+
+/* Ejemplo:
+.header-transition {
+  transition: background-color 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
+} 
+*/
+
+.color-primary {
+  color: #456aac;
+}
+
+.color.secondary {
+  color: #2a3b5b;
+}
+
+.bg-color-primary {
+  background-color: #456aac;
+}
+
+.bg-color-secondary {
+  background-color: #2a3b5b;
+}

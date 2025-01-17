@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Charis - Painting & Remodeling</title>
+
+    <!-- Fuente Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" type="image/svg+xml" href="./assets/img/logo.ico" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Estilos personalizados o en un .css aparte -->
+    <style>
+      /* ------------------------------------------------------------------
+         Fuente base
+      ------------------------------------------------------------------ */
+      body {
+        font-family: "Montserrat", sans-serif;
+      }
+
+      /* ------------------------------------------------------------------
+         Clases de color (puedes ajustarlas si gustas)
+      ------------------------------------------------------------------ */
+      .color-primary {
+        color: #456aac;
+      }
+      .color-secondary {
+        color: #2a3b5b;
+      }
+      .bg-color-primary {
+        background-color: #456aac;
+      }
+      .bg-color-secondary {
+        background-color: #2a3b5b;
+      }
+
+      /* ------------------------------------------------------------------
+         Preloader (transición de "pintura")
+      ------------------------------------------------------------------ */
+      #preloader {
+        animation: removePaint 1s ease-in-out forwards;
+        animation-delay: 1s; /* Retrasa el inicio de la animación por 1 segundo */
+        z-index: 50;
+      }
+      @keyframes removePaint {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(-100%);
+        }
+      }
+
+      /* ------------------------------------------------------------------
+         Hero con zoom out suave
+      ------------------------------------------------------------------ */
+      .hero-image {
+        transform: scale(1.1);
+        transition: transform 1.8s ease-in-out;
+      }
+      .hero-loaded {
+        transform: scale(1);
+      }
+
+      /* ------------------------------------------------------------------
+         Header
+         - Se oculta al scrollear hacia abajo (usamos -translate-y-full).
+         - Se muestra al scrollear hacia arriba.
+         - Transición suave en transform, background, etc.
+      ------------------------------------------------------------------ */
+      .header-transition {
+        transition: background-color 0.3s ease-in-out,
+          backdrop-filter 0.3s ease-in-out, transform 0.3s ease-in-out;
+      }
+
+      /* ------------------------------------------------------------------
+         Diferentes estados del header
+      ------------------------------------------------------------------ */
+
+      /* Cuando el header está sobre el hero:
+         - Todo se ve en blanco (logo, links).
+         - Usamos un "filtro" al logo para que se vea blanco
+           incluso si su imagen original es azul.
+      */
+      .on-hero a,
+      .on-hero button,
+      .on-hero li {
+        color: #fff !important;
+      }
+      .logo-white {
+        filter: brightness(0) invert(1); /* Convierte una imagen azul a blanco */
+      }
+
+      /* ------------------------------------------------------------------
+         Menú y contenido "off-canvas" en mobile
+      ------------------------------------------------------------------ */
+      /* El contenedor principal que será "empujado" */
+      #pageWrapper {
+        transition: transform 0.3s ease-in-out; /* Suave */
+      }
+
+      /* Menú hamburguesa deslizable a la derecha,
+         por defecto está oculto (translateX(100%)) */
+      #mobileNav {
+        width: 50%; /* Ocupa la mitad derecha en mobile */
+        transition: transform 0.3s ease-in-out;
+        transform: translateX(100%);
+      }
+    </style>
+  </head>
+
+  <body class="overflow-x-hidden">
+    <!-- Preloader: Cubierta de “pintura” inicial -->
+    <div
+      id="preloader"
+      class="fixed inset-0 bg-white flex items-center justify-center"
+    >
+      <img src="./assets/img/logo.png" alt="Cargando..." class="w-45" />
+    </div>
+
+    <!-- Contenedor que se "empujará" con el menú lateral -->
+    <div id="pageWrapper" class="relative min-h-screen">
+      <!-- Header (Nav) -->
+      <header
+        id="mainHeader"
+        class="fixed w-full top-0 left-0 flex items-center justify-between px-8 py-4 header-transition z-30 bg-white"
+      >
+        <!-- Logo -->
+        <div class="text-2xl font-bold">
+          <!-- Ajusta la ruta y tamaño de tu logo -->
+          <a href="/">
+            <img
+              src="./assets/img/logo.png"
+              alt="Logo"
+              id="headerLogo"
+              class="w-12"
+            />
+          </a>
+        </div>
+
+        <!-- Navegación normal (oculta en mobile) -->
+        <nav>
+          <ul
+            id="navList"
+            class="hidden md:flex space-x-6 font-semibold color-primary"
+          >
+            <li><a href="#" class="hover:underline">Inicio</a></li>
+            <li><a href="#" class="hover:underline">Servicios</a></li>
+            <li><a href="#" class="hover:underline">Contacto</a></li>
+          </ul>
+        </nav>
+
+        <!-- Botón Burger (solo aparece en móvil) -->
+        <div class="md:hidden">
+          <button
+            id="menuBtn"
+            class="focus:outline-none color-primary"
+            aria-label="Abrir menú"
+          >
+            <!-- Ícono “burger” -->
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- Hero Section -->
+      <section
+        id="hero"
+        class="relative h-screen w-full flex items-center justify-center overflow-hidden"
+      >
+        <!-- Imagen de fondo con zoom inicial -->
+        <div
+          class="absolute inset-0 bg-cover bg-center hero-image"
+          style="
+            background-image: url('https://www.repro-tableaux.com/kunst/edouard_manet_739/Landhaus-in-Rueil.jpg');
+          "
+        ></div>
+
+        <!-- Oscurecer el fondo -->
+        <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+
+        <!-- Contenido principal del hero -->
+        <div class="relative z-10 text-center text-white px-4">
+          <h1 class="text-5xl md:text-6xl font-bold mb-4">
+            Dale Color a Tu Espacio
+          </h1>
+          <p class="text-xl md:text-2xl mb-8">
+            Pintura profesional con acabados de primera.
+          </p>
+          <button
+            class="bg-color-primary hover:bg-color-secondary text-white font-bold py-2 px-4 rounded transition-colors"
+          >
+            Cotiza Ahora
+          </button>
+        </div>
+      </section>
+
+      <!-- Sección de contenido extra (ejemplo) -->
+      <section class="min-h-screen flex items-center justify-center">
+        <div class="max-w-3xl text-center p-4">
+          <!-- Título con color primario -->
+          <h2 class="text-3xl md:text-4xl font-bold mb-6 color-primary">
+            Nuestros Servicios
+          </h2>
+          <!-- Texto con color secundario -->
+          <p class="color-secondary leading-relaxed">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+            dictum augue eget nulla mollis, sit amet blandit leo vehicula.
+            Integer accumsan justo in magna faucibus, nec porta risus porttitor.
+          </p>
+        </div>
+      </section>
+    </div>
+    <!-- Fin de pageWrapper -->
+
+    <!-- Menú Móvil (Empuja la página a la izquierda al abrir) -->
+    <div
+      id="mobileNav"
+      class="fixed top-0 right-0 h-full bg-color-primary z-50 flex flex-col p-6"
+    >
+      <!-- Botón de Cerrar (esquina sup derecha) -->
+      <div class="text-right mb-6">
+        <button
+          id="closeMenuBtn"
+          class="text-2xl font-bold text-white focus:outline-none"
+          aria-label="Cerrar menú"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-7"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18 18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Opciones del Menú -->
+      <ul class="flex-1 flex flex-col items-center justify-center space-y-8">
+        <li>
+          <a href="#" class="text-2xl font-semibold text-white">Inicio</a>
+        </li>
+        <li>
+          <a href="#" class="text-2xl font-semibold text-white">Servicios</a>
+        </li>
+        <li>
+          <a href="#" class="text-2xl font-semibold text-white">Contacto</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Script principal -->
+    <script src="main.js"></script>
+  </body>
+</html>
