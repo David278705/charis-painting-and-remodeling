@@ -43,7 +43,7 @@ window.addEventListener("DOMContentLoaded", () => {
       mainHeader.classList.add("on-hero", "bg-transparent");
       // Logo se vuelve blanco con filtro
       headerLogo.classList.add("logo-white");
-      mainHeader.classList.remove("bg-white");
+      mainHeader.classList.remove("bg-white-transparent");
       // Fondo (ya es blanco, pero lo forzamos a transparente si deseas)
       // En este caso, lo dejamos como "blanco" para cumplir tu requerimiento
       // de "todo es blanco", y forzamos el color de links con on-hero.
@@ -51,7 +51,7 @@ window.addEventListener("DOMContentLoaded", () => {
       // Fuera del hero
       mainHeader.classList.remove("on-hero");
       headerLogo.classList.remove("logo-white");
-      mainHeader.classList.add("bg-white");
+      mainHeader.classList.add("bg-white-transparent");
     }
 
     // -- (B) Hide on scroll down, show on scroll up --

@@ -45,6 +45,10 @@
         background-color: #2a3b5b;
       }
 
+      .bg-white-transparent {
+        background-color: rgba(255, 255, 255, 0.9);
+      }
+
       /* ------------------------------------------------------------------
          Preloader (transición de "pintura")
       ------------------------------------------------------------------ */
@@ -134,7 +138,7 @@
       <!-- Header (Nav) -->
       <header
         id="mainHeader"
-        class="fixed w-full top-0 left-0 flex items-center justify-between px-8 py-4 header-transition z-30 bg-white"
+        class="fixed w-full top-0 left-0 flex items-center justify-between px-8 py-4 header-transition z-30 bg-white-transparent"
       >
         <!-- Logo -->
         <div class="text-2xl font-bold">
@@ -155,9 +159,15 @@
             id="navList"
             class="hidden md:flex space-x-6 font-semibold color-primary"
           >
-            <li><a href="#" class="hover:underline">Inicio</a></li>
-            <li><a href="#" class="hover:underline">Servicios</a></li>
-            <li><a href="#" class="hover:underline">Contacto</a></li>
+            <li>
+              <a href="#" class="hover:underline">Home</a>
+            </li>
+            <li>
+              <a href="#" class="hover:underline">Services</a>
+            </li>
+            <li>
+              <a href="#" class="hover:underline">Contact</a>
+            </li>
           </ul>
         </nav>
 
@@ -206,32 +216,138 @@
         <!-- Contenido principal del hero -->
         <div class="relative z-10 text-center text-white px-4">
           <h1 class="text-5xl md:text-6xl font-bold mb-4">
-            Dale Color a Tu Espacio
+            Give Your Space New Life
           </h1>
           <p class="text-xl md:text-2xl mb-8">
-            Pintura profesional con acabados de primera.
+            Professional painting with a top-quality finish.
           </p>
           <button
             class="bg-color-primary hover:bg-color-secondary text-white font-bold py-2 px-4 rounded transition-colors"
           >
-            Cotiza Ahora
+            Get a Quote
           </button>
         </div>
       </section>
 
-      <!-- Sección de contenido extra (ejemplo) -->
-      <section class="min-h-screen flex items-center justify-center">
-        <div class="max-w-3xl text-center p-4">
-          <!-- Título con color primario -->
-          <h2 class="text-3xl md:text-4xl font-bold mb-6 color-primary">
-            Nuestros Servicios
+      <!-- About Section -->
+      <section id="about" class="py-12 px-4">
+        <div class="max-w-7xl mx-auto space-y-16">
+          <!-- First row (Image left, text right) -->
+          <div class="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <img
+                src="https://paintkings.com/wp-content/uploads/2013/10/Interior20Paint.jpg"
+                alt="About Charis Painting"
+                class="w-full rounded shadow"
+              />
+            </div>
+            <div>
+              <h2 class="text-3xl md:text-4xl font-bold mb-4 color-primary">
+                About Charis Painting & Remodeling
+              </h2>
+              <p class="color-secondary leading-relaxed">
+                At Charis Painting & Remodeling, our passion is transforming
+                your home or business into a vibrant, inviting space. With years
+                of experience and a commitment to excellence, we work tirelessly
+                to exceed your expectations. Our dedicated team uses only
+                premium materials and cutting-edge techniques, ensuring a finish
+                that lasts for years.
+              </p>
+            </div>
+          </div>
+
+          <!-- Second row (Image right, text left) -->
+          <div class="grid md:grid-cols-2 gap-8 items-center">
+            <div class="order-2 md:order-1">
+              <h2 class="text-3xl md:text-4xl font-bold mb-4 color-primary">
+                Our Commitment to Quality
+              </h2>
+              <p class="color-secondary leading-relaxed">
+                We believe every space deserves meticulous attention to detail.
+                Whether you're looking for a fresh coat of paint or a
+                comprehensive remodel, we approach every project with care and
+                professionalism. Trust Charis Painting & Remodeling to deliver
+                outstanding results on time and on budget.
+              </p>
+            </div>
+            <div class="order-1 md:order-2">
+              <img
+                src="https://arizonahomepainting.com/wp-content/uploads/2024/04/home-painting-services-fountain-hills.jpeg"
+                alt="Remodeling Work"
+                class="w-full rounded shadow"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services Section -->
+      <section id="services" class="py-12 px-4 bg-gray-100">
+        <div class="max-w-7xl mx-auto">
+          <h2
+            class="text-3xl md:text-4xl font-bold mb-8 text-center color-primary"
+          >
+            Our Services
           </h2>
-          <!-- Texto con color secundario -->
-          <p class="color-secondary leading-relaxed">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-            dictum augue eget nulla mollis, sit amet blandit leo vehicula.
-            Integer accumsan justo in magna faucibus, nec porta risus porttitor.
+          <p class="max-w-xl mx-auto text-center text-gray-600 mb-12">
+            Discover the wide range of services we offer to help you achieve the
+            look and feel you desire for your property. From painting to full
+            remodeling, we guarantee remarkable craftsmanship and a
+            customer-focused experience.
           </p>
+
+          <!-- Services Cards -->
+          <div class="grid md:grid-cols-3 gap-8">
+            <!-- Card 1 -->
+            <div class="bg-white rounded shadow p-6 text-center">
+              <img
+                src="https://media.istockphoto.com/id/468120950/es/foto/house-painter-de-la-pintura-del-acabado-y-persianas-de-su.jpg?s=612x612&w=0&k=20&c=l5jZ0nF4H7du_GAmHwAK7JjMWHmisKqOYznXq1ollU0="
+                alt="Residential Painting"
+                class="w-full h-48 object-cover rounded mb-4"
+              />
+              <h3 class="text-xl font-bold color-primary mb-2">
+                Residential Painting
+              </h3>
+              <p class="color-secondary">
+                We specialize in painting your home with flawless finishes,
+                using premium materials that ensure durability and beauty.
+              </p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-white rounded shadow p-6 text-center">
+              <img
+                src="https://fillopainting.com/wp-content/uploads/2020/03/Fillo-Painting_Change-Your-House-with-the-Power-of-Paint_IMAGE1.jpeg"
+                alt="Commercial Painting"
+                class="w-full h-48 object-cover rounded mb-4"
+              />
+              <h3 class="text-xl font-bold color-primary mb-2">
+                Commercial Painting
+              </h3>
+              <p class="color-secondary">
+                Make a lasting impression on clients and customers. Our team
+                delivers fast, top-quality results with minimal disruption to
+                your operations.
+              </p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-white rounded shadow p-6 text-center">
+              <img
+                src="https://www.thespruce.com/thmb/FKD8XjGReXlqqH6YWS64AeY7NQU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Painting-House-Eaves-78568188-574f20ae5f9b582060de8f5c.jpg"
+                alt="Remodeling & Renovations"
+                class="w-full h-48 object-cover rounded mb-4"
+              />
+              <h3 class="text-xl font-bold color-primary mb-2">
+                Remodeling & Renovations
+              </h3>
+              <p class="color-secondary">
+                Revitalize any part of your home or business. We handle
+                everything from minor updates to complete makeovers, ensuring
+                your space reflects your vision.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
     </div>
@@ -269,13 +385,13 @@
       <!-- Opciones del Menú -->
       <ul class="flex-1 flex flex-col items-center justify-center space-y-8">
         <li>
-          <a href="#" class="text-2xl font-semibold text-white">Inicio</a>
+          <a href="#" class="text-2xl font-semibold text-white">Home</a>
         </li>
         <li>
-          <a href="#" class="text-2xl font-semibold text-white">Servicios</a>
+          <a href="#" class="text-2xl font-semibold text-white">Services</a>
         </li>
         <li>
-          <a href="#" class="text-2xl font-semibold text-white">Contacto</a>
+          <a href="#" class="text-2xl font-semibold text-white">Contact</a>
         </li>
       </ul>
     </div>
