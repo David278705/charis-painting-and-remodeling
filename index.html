@@ -121,6 +121,55 @@
         transition: transform 0.3s ease-in-out;
         transform: translateX(100%);
       }
+      /* Ajustes al contenedor */
+      .testimonial-carousel-container {
+        height: 300px; /* Altura fija en escritorio */
+      }
+
+      /* Slides con transiciones suaves */
+      .testimonial-slide {
+        transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+        opacity: 0;
+      }
+
+      /* Posiciones 3D en escritorio */
+      .slide-center {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+        z-index: 10;
+      }
+      .slide-left {
+        opacity: 0.7;
+        transform: translateX(-170%) scale(0.8);
+        z-index: 5;
+      }
+      .slide-right {
+        opacity: 0.7;
+        transform: translateX(70%) scale(0.8);
+        z-index: 5;
+      }
+
+      /* MEDIA QUERY para pantallas <= 767px (móvil) */
+      @media (max-width: 767px) {
+        .testimonial-carousel-container {
+          height: auto; /* Se adapta al contenido */
+        }
+        .testimonial-slide {
+          position: static; /* Quita el absolute */
+          transform: none; /* Sin transform */
+          opacity: 1; /* Todas visibles */
+          margin: 0 auto 1.5rem;
+          width: 100%; /* Ocupa todo el ancho (o ajusta a tu gusto) */
+          max-width: 400px; /* Ancho máximo */
+        }
+        /* Quita las clases 3D en móvil (o déjalas inoperantes) */
+        .slide-left,
+        .slide-center,
+        .slide-right {
+          transform: none !important;
+          opacity: 1 !important;
+        }
+      }
     </style>
   </head>
 
@@ -148,7 +197,7 @@
               src="./assets/img/logo.png"
               alt="Logo"
               id="headerLogo"
-              class="w-20"
+              class="w-14"
             />
           </a>
         </div>
@@ -160,13 +209,16 @@
             class="hidden md:flex space-x-6 font-semibold color-primary"
           >
             <li>
-              <a href="#" class="hover:underline">Home</a>
+              <a href="#about" class="hover:underline">About</a>
             </li>
             <li>
-              <a href="#" class="hover:underline">Services</a>
+              <a href="#services" class="hover:underline">Services</a>
             </li>
             <li>
-              <a href="#" class="hover:underline">Contact</a>
+              <a href="#testimonials" class="hover:underline">Testimonials</a>
+            </li>
+            <li>
+              <a href="#location" class="hover:underline">Location</a>
             </li>
           </ul>
         </nav>
@@ -350,6 +402,289 @@
           </div>
         </div>
       </section>
+
+      <!-- ======== TESTIMONIOS / OPINIONES DE CLIENTES (Carrusel 3D) ======== -->
+      <section id="testimonials" class="py-12 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+          <h2
+            class="text-3xl md:text-4xl font-bold mb-8 text-center color-primary"
+          >
+            Reviews from Our Customers
+          </h2>
+
+          <!-- Main carousel container -->
+          <div
+            id="testimonialCarousel"
+            class="testimonial-carousel-container relative max-w-3xl mx-auto"
+          >
+            <!-- Slide 1 -->
+            <div
+              class="testimonial-slide absolute top-0 left-1/2 w-72 p-6 bg-gray-50 rounded-lg shadow text-center"
+            >
+              <img
+                src="https://randomuser.me/api/portraits/men/1.jpg"
+                alt="Client"
+                class="mx-auto w-20 h-20 rounded-full mb-4 object-cover"
+              />
+              <h3 class="text-xl font-bold color-primary">John Doe</h3>
+              <p class="text-sm color-secondary">
+                Service: Residential Painting
+              </p>
+              <!-- Star rating (5) -->
+              <p class="my-2">
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+              </p>
+              <p class="text-gray-600 italic">
+                “Excellent job! I was very satisfied with the outcome.”
+              </p>
+            </div>
+
+            <!-- Slide 2 -->
+            <div
+              class="testimonial-slide absolute top-0 left-1/2 w-72 p-6 bg-gray-50 rounded-lg shadow text-center"
+            >
+              <img
+                src="https://randomuser.me/api/portraits/women/2.jpg"
+                alt="Client"
+                class="mx-auto w-20 h-20 rounded-full mb-4 object-cover"
+              />
+              <h3 class="text-xl font-bold color-primary">Jane Smith</h3>
+              <p class="text-sm color-secondary">
+                Service: Commercial Painting
+              </p>
+              <!-- Star rating (4) -->
+              <p class="my-2">
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="text-gray-300">&#9733;</span>
+              </p>
+              <p class="text-gray-600 italic">
+                “Professional and punctual. Recommended for large jobs.”
+              </p>
+            </div>
+
+            <!-- Slide 3 -->
+            <div
+              class="testimonial-slide absolute top-0 left-1/2 w-72 p-6 bg-gray-50 rounded-lg shadow text-center"
+            >
+              <img
+                src="https://randomuser.me/api/portraits/men/3.jpg"
+                alt="Client"
+                class="mx-auto w-20 h-20 rounded-full mb-4 object-cover"
+              />
+              <h3 class="text-xl font-bold color-primary">Carlos Pérez</h3>
+              <p class="text-sm color-secondary">
+                Service: Remodeling & Renovations
+              </p>
+              <!-- Star rating (5) -->
+              <p class="my-2">
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+              </p>
+              <p class="text-gray-600 italic">
+                “My home looks completely different. Thank you for the attention
+                to detail.”
+              </p>
+            </div>
+
+            <!-- Previous button -->
+            <button
+              id="prevBtn"
+              class="absolute left-0 top-1/2 -translate-y-1/2 bg-gray-200 text-gray-700 p-3 rounded-full hover:bg-gray-300 transition-colors z-10 hidden md:block"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+            </button>
+
+            <!-- Next button -->
+            <button
+              id="nextBtn"
+              class="absolute right-0 top-1/2 -translate-y-1/2 bg-gray-200 text-gray-700 p-3 rounded-full hover:bg-gray-300 transition-colors z-10 hidden md:block"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </button>
+          </div>
+          <!-- End main container -->
+        </div>
+      </section>
+
+      <!-- ======== LOCATION / MAP SECTION ======== -->
+      <section id="location" class="py-12 px-4 bg-color-primary">
+        <div class="max-w-7xl mx-auto">
+          <!-- Title -->
+          <h2
+            class="text-3xl md:text-4xl font-bold mb-8 text-center text-white"
+          >
+            Location
+          </h2>
+
+          <!-- Responsive grid: 2 columns on desktop, 1 on mobile.
+               'place-items-center' centers each column horizontally and vertically. -->
+          <div
+            class="grid md:grid-cols-2 gap-6 items-center place-items-center"
+          >
+            <!-- Left Column: Info card, always centered -->
+            <div
+              class="bg-white rounded-lg shadow-md p-6 w-full max-w-md text-center"
+            >
+              <h3 class="text-2xl font-bold color-primary mb-2">Our Office</h3>
+              <p class="text-gray-600 mb-4">
+                1234 Main Street<br />
+                Houston, TX 77000<br />
+                United States
+              </p>
+              <hr class="my-4" />
+              <h4 class="text-xl font-semibold color-primary mb-2">Hours</h4>
+              <p class="text-gray-600">Mon - Fri: 8:00 AM - 6:00 PM</p>
+              <p class="text-gray-600">Sat: 9:00 AM - 2:00 PM</p>
+              <p class="text-gray-600 mb-4">Sunday: Closed</p>
+              <hr class="my-4" />
+              <h4 class="text-xl font-semibold color-primary mb-2">Contact</h4>
+              <p class="text-gray-600">Phone: (123) 456-7890</p>
+              <p class="text-gray-600">Email: info@charispainting.com</p>
+            </div>
+
+            <!-- Right Column: Map, also centered -->
+            <div class="w-full h-96">
+              <iframe
+                class="w-full h-full rounded-lg shadow-md"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3168.9538011901975!2d-122.08385132359186!3d37.38605153974765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fbb01ed3fa2c7%3A0x166e63b622efbe59!2sGoogleplex!5e0!3m2!1ses-419!2sus!4v1606542398452!5m2!1ses-419!2sus"
+                frameborder="0"
+                allowfullscreen
+                loading="lazy"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Galería con Lightbox/Modal -->
+      <section id="gallery" class="py-12 px-4 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+          <!-- Título -->
+          <h2
+            class="text-3xl md:text-4xl font-bold text-center color-primary mb-6"
+          >
+            Gallery
+          </h2>
+          <p class="text-center text-gray-600 mb-8">
+            Some of our most recent projects
+          </p>
+
+          <!-- Grid de imágenes -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <!-- Item 1 -->
+            <div
+              class="w-full h-60 overflow-hidden rounded cursor-pointer"
+              onclick="showModal('https://www.repro-tableaux.com/kunst/edouard_manet_739/Landhaus-in-Rueil.jpg')"
+            >
+              <img
+                src="https://www.repro-tableaux.com/kunst/edouard_manet_739/Landhaus-in-Rueil.jpg"
+                alt="Proyecto 1"
+                class="w-full h-full object-cover transform transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+
+            <!-- Item 2 -->
+            <div
+              class="w-full h-60 overflow-hidden rounded cursor-pointer"
+              onclick="showModal('https://www.repro-tableaux.com/kunst/edouard_manet_739/Landhaus-in-Rueil.jpg')"
+            >
+              <img
+                src="https://www.repro-tableaux.com/kunst/edouard_manet_739/Landhaus-in-Rueil.jpg"
+                alt="Proyecto 2"
+                class="w-full h-full object-cover transform transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+
+            <!-- Item 3 -->
+            <div
+              class="w-full h-60 overflow-hidden rounded cursor-pointer"
+              onclick="showModal('https://www.repro-tableaux.com/kunst/edouard_manet_739/Landhaus-in-Rueil.jpg')"
+            >
+              <img
+                src="https://www.repro-tableaux.com/kunst/edouard_manet_739/Landhaus-in-Rueil.jpg"
+                alt="Proyecto 3"
+                class="w-full h-full object-cover transform transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+
+            <!-- Repite más items si gustas -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Modal (Oculto por defecto con "hidden") -->
+      <div
+        id="galleryModal"
+        class="hidden fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+      >
+        <!-- Contenedor de la imagen y botón de cierre -->
+        <div class="relative max-w-4xl mx-auto px-4">
+          <!-- Botón de Cerrar (esquina superior derecha) -->
+          <button
+            class="absolute top-0 right-0 mr-4 text-white text-3xl font-bold focus:outline-none bg-color-primary rounded-lg w-10 h-10 opacity-80 flex items-center justify-center"
+            onclick="closeModal()"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-7"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18 18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+
+          <!-- Imagen en grande -->
+          <img
+            id="modalImage"
+            src=""
+            alt="Imagen grande"
+            class="w-full h-auto rounded shadow-lg"
+          />
+        </div>
+      </div>
     </div>
     <!-- Fin de pageWrapper -->
 
@@ -385,18 +720,40 @@
       <!-- Opciones del Menú -->
       <ul class="flex-1 flex flex-col items-center justify-center space-y-8">
         <li>
-          <a href="#" class="text-2xl font-semibold text-white">Home</a>
+          <a href="#about" class="text-2xl font-semibold text-white">Home</a>
         </li>
         <li>
-          <a href="#" class="text-2xl font-semibold text-white">Services</a>
+          <a href="#services" class="text-2xl font-semibold text-white"
+            >Services</a
+          >
         </li>
         <li>
-          <a href="#" class="text-2xl font-semibold text-white">Contact</a>
+          <a href="#testimonials" class="text-2xl font-semibold text-white"
+            >Contact</a
+          >
+        </li>
+        <li>
+          <a href="#location" class="text-2xl font-semibold text-white"
+            >Location</a
+          >
         </li>
       </ul>
     </div>
 
     <!-- Script principal -->
+    <script>
+      function showModal(imageSrc) {
+        const modal = document.getElementById("galleryModal");
+        const modalImg = document.getElementById("modalImage");
+        modalImg.src = imageSrc;
+        modal.classList.remove("hidden");
+      }
+
+      function closeModal() {
+        const modal = document.getElementById("galleryModal");
+        modal.classList.add("hidden");
+      }
+    </script>
     <script src="main.js"></script>
   </body>
 </html>

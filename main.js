@@ -13,8 +13,17 @@ window.addEventListener("DOMContentLoaded", () => {
   let heroSection = document.getElementById("hero");
   let heroHeight = heroSection.offsetHeight;
 
-  // 1) Quitar preloader y activar zoom del hero
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      // e.preventDefault();
+      closeMenuBtn.click();
+      // document.querySelector(this.getAttribute("href")).scrollIntoView({
+      //   behavior: "smooth",
+      // });
+    });
+  });
 
+  // 1) Quitar preloader y activar zoom del hero
   setTimeout(() => {
     onScroll();
   }, 500);
@@ -38,15 +47,12 @@ window.addEventListener("DOMContentLoaded", () => {
       window.pageYOffset || document.documentElement.scrollTop;
 
     // -- (A) Determinar si el header debe estar en modo "sobre hero" o no --
-    if (currentScroll < heroHeight) {
+    if (currentScroll < heroHeight - 500) {
       // Sobre el hero -> Cambiamos a "on-hero"
       mainHeader.classList.add("on-hero", "bg-transparent");
       // Logo se vuelve blanco con filtro
       headerLogo.classList.add("logo-white");
       mainHeader.classList.remove("bg-white-transparent");
-      // Fondo (ya es blanco, pero lo forzamos a transparente si deseas)
-      // En este caso, lo dejamos como "blanco" para cumplir tu requerimiento
-      // de "todo es blanco", y forzamos el color de links con on-hero.
     } else {
       // Fuera del hero
       mainHeader.classList.remove("on-hero");
@@ -69,10 +75,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // 3) Abrir menú (empujando la página a la izquierda)
   menuBtn.addEventListener("click", () => {
-    // Mueve el contenedor principal medio ancho a la izquierda
     pageWrapper.style.transform = "translateX(-50%)";
-
-    // Mueve el menú hamburguesa a la vista (de translateX(100%) a 0)
     mobileNav.style.transform = "translateX(0)";
   });
 
@@ -80,12 +83,81 @@ window.addEventListener("DOMContentLoaded", () => {
   closeMenuBtn.addEventListener("click", () => {
     pageWrapper.style.transform = "translateX(0)";
     mobileNav.style.transform = "translateX(100%)";
-
     pageWrapper.style.transform = "none";
   });
 
-  //   menuBtn.addEventListener("click", () => {
-  //     pageWrapper.style.transform = "translateX(0)";
-  //     mobileNav.style.transform = "translateX(100%)";
-  //   });
+  // ======== LÓGICA DEL CARRUSEL DE TESTIMONIOS ========
+  const slides = document.querySelectorAll(".testimonial-slide");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+
+  const totalSlides = slides.length; // 3
+  let currentSlide = 0;
+
+  // Al iniciar, configuramos la posición
+  updateCarousel();
+
+  function updateCarousel() {
+    // Quitamos todas las clases "slide-left", "slide-center", "slide-right"
+    slides.forEach((slide) => {
+      slide.classList.remove("slide-left", "slide-center", "slide-right");
+    });
+
+    // Asigna center al actual
+    slides[currentSlide].classList.add("slide-center");
+
+    // right => (currentSlide + 1) % totalSlides
+    const rightIndex = (currentSlide + 1) % totalSlides;
+    slides[rightIndex].classList.add("slide-right");
+
+    // left => (currentSlide + totalSlides - 1) % totalSlides
+    const leftIndex = (currentSlide + totalSlides - 1) % totalSlides;
+    slides[leftIndex].classList.add("slide-left");
+  }
+
+  prevBtn.addEventListener("click", () => {
+    currentSlide = (currentSlide + totalSlides - 1) % totalSlides;
+    updateCarousel();
+  });
+
+  nextBtn.addEventListener("click", () => {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateCarousel();
+  });
+
+  // ======== 5) Detectar clic en enlaces que deben disparar el preloader ========
+  //  Utiliza el selector que prefieras. EJEMPLO: Enlaces con clase "preloader-link"
+  //  <a href="#" class="text-2xl font-semibold text-white preloader-link">Contact</a>
+  const preloaderLinks = document.querySelectorAll("a.preloader-link");
+
+  preloaderLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      // Evita el comportamiento normal si es "#"
+      if (link.getAttribute("href") === "#") {
+        e.preventDefault();
+      }
+
+      // Relanzamos el preloader por 1s
+      relaunchPreloader();
+    });
+  });
+
+  function relaunchPreloader() {
+    // MOSTRAR el preloader otra vez
+    preloader.style.display = "flex";
+    // Volvemos a poner su transform original (por si quedó con -100%)
+    preloader.style.transform = "translateY(0)";
+
+    // Luego de un pequeño delay, añadimos la animación "removePaint" si la usas en CSS
+    // o simplemente puedes usar un setTimeout para ocultarlo:
+    setTimeout(() => {
+      // Ocultamos el preloader otra vez
+      preloader.style.transform = "translateY(-100%)";
+    }, 50);
+
+    // Después de 1s (lo que dura la animación removePaint), lo quitamos del DOM
+    setTimeout(() => {
+      preloader.style.display = "none";
+    }, 1050);
+  }
 });
