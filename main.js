@@ -164,39 +164,36 @@ window.addEventListener("DOMContentLoaded", () => {
   document
     .getElementById("contactForm")
     .addEventListener("submit", async (event) => {
-      event.preventDefault(); // Evita que la página se recargue
+      event.preventDefault(); // Prevents page reload
 
-      // Reemplaza este valor con TU endpoint de Formspree
+      // Replace this with YOUR actual Formspree endpoint
       const formspreeEndpoint = "https://formspree.io/f/mpwppkaq";
 
-      // Captura de datos del formulario
       const form = event.target;
       const formData = new FormData(form);
 
       try {
-        // Envía la información por POST al endpoint de Formspree
-        // Importante: 'Accept: application/json' para recibir una respuesta JSON
         const response = await fetch(formspreeEndpoint, {
           method: "POST",
           body: formData,
           headers: {
             Accept: "application/json",
           },
+          // 'mode' usually defaults to 'cors', but explicitly:
+          mode: "cors",
         });
 
         if (response.ok) {
-          // Si todo va bien, mostramos confirmación y limpiamos el formulario
-          alert("¡Tu mensaje ha sido enviado con éxito!");
+          alert("Your message has been sent successfully!");
           form.reset();
         } else {
-          // Si la respuesta no es 200 OK, hubo algún error
           alert(
-            "Hubo un problema al enviar el mensaje. Intenta de nuevo más tarde."
+            "There was an issue sending your message. Please try again later."
           );
         }
       } catch (error) {
-        console.error("Error al enviar:", error);
-        alert("Error de red al enviar el mensaje. Intenta de nuevo más tarde.");
+        console.error("Error:", error);
+        alert("Network error. Please try again later.");
       }
     });
 });
