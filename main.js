@@ -160,4 +160,43 @@ window.addEventListener("DOMContentLoaded", () => {
       preloader.style.display = "none";
     }, 1050);
   }
+
+  document
+    .getElementById("contactForm")
+    .addEventListener("submit", async (event) => {
+      event.preventDefault(); // Evita que la página se recargue
+
+      // Reemplaza este valor con TU endpoint de Formspree
+      const formspreeEndpoint = "https://formspree.io/f/mpwppkaq";
+
+      // Captura de datos del formulario
+      const form = event.target;
+      const formData = new FormData(form);
+
+      try {
+        // Envía la información por POST al endpoint de Formspree
+        // Importante: 'Accept: application/json' para recibir una respuesta JSON
+        const response = await fetch(formspreeEndpoint, {
+          method: "POST",
+          body: formData,
+          headers: {
+            Accept: "application/json",
+          },
+        });
+
+        if (response.ok) {
+          // Si todo va bien, mostramos confirmación y limpiamos el formulario
+          alert("¡Tu mensaje ha sido enviado con éxito!");
+          form.reset();
+        } else {
+          // Si la respuesta no es 200 OK, hubo algún error
+          alert(
+            "Hubo un problema al enviar el mensaje. Intenta de nuevo más tarde."
+          );
+        }
+      } catch (error) {
+        console.error("Error al enviar:", error);
+        alert("Error de red al enviar el mensaje. Intenta de nuevo más tarde.");
+      }
+    });
 });

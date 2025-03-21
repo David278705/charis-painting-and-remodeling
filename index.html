@@ -257,9 +257,7 @@
         <!-- Imagen de fondo con zoom inicial -->
         <div
           class="absolute inset-0 bg-cover bg-center hero-image"
-          style="
-            background-image: url('https://www.repro-tableaux.com/kunst/edouard_manet_739/Landhaus-in-Rueil.jpg');
-          "
+          style="background-image: url('/assets/img/landing.png')"
         ></div>
 
         <!-- Oscurecer el fondo -->
@@ -273,11 +271,13 @@
           <p class="text-xl md:text-2xl mb-8">
             Professional painting with a top-quality finish.
           </p>
-          <button
+
+          <a
+            href="#about"
             class="bg-color-primary hover:bg-color-secondary text-white font-bold py-2 px-4 rounded transition-colors"
           >
-            Get a Quote
-          </button>
+            See more...
+          </a>
         </div>
       </section>
 
@@ -350,7 +350,7 @@
             <!-- Card 1 -->
             <div class="bg-white rounded shadow p-6 text-center">
               <img
-                src="https://static.vecteezy.com/system/resources/thumbnails/005/152/307/small_2x/home-and-love-animated-line-icon-suitable-animated-for-love-home-application-free-video.jpg"
+                src="/assets/img/tejado.jpg"
                 alt="Interior & Exterior Painting"
                 class="w-full h-48 object-cover rounded mb-4"
               />
@@ -366,7 +366,7 @@
             <!-- Card 2 -->
             <div class="bg-white rounded shadow p-6 text-center">
               <img
-                src="https://static.vecteezy.com/system/resources/thumbnails/005/152/307/small_2x/home-and-love-animated-line-icon-suitable-animated-for-love-home-application-free-video.jpg"
+                src="/assets/img/baño_remodeling5.jpg"
                 alt="Remodeling & Renovation"
                 class="w-full h-48 object-cover rounded mb-4"
               />
@@ -382,7 +382,7 @@
             <!-- Card 3 -->
             <div class="bg-white rounded shadow p-6 text-center">
               <img
-                src="https://static.vecteezy.com/system/resources/thumbnails/005/152/307/small_2x/home-and-love-animated-line-icon-suitable-animated-for-love-home-application-free-video.jpg"
+                src="/assets/img/remodelint5.jpg"
                 alt="Surface Repair & Preparation"
                 class="w-full h-48 object-cover rounded mb-4"
               />
@@ -398,7 +398,7 @@
             <!-- Card 4 -->
             <div class="bg-white rounded shadow p-6 text-center">
               <img
-                src="https://static.vecteezy.com/system/resources/thumbnails/005/152/307/small_2x/home-and-love-animated-line-icon-suitable-animated-for-love-home-application-free-video.jpg"
+                src="/assets/img/baño_remodeling2.jpg"
                 alt="Custom Designs"
                 class="w-full h-48 object-cover rounded mb-4"
               />
@@ -413,7 +413,7 @@
             <!-- Card 5 -->
             <div class="bg-white rounded shadow p-6 text-center">
               <img
-                src="https://static.vecteezy.com/system/resources/thumbnails/005/152/307/small_2x/home-and-love-animated-line-icon-suitable-animated-for-love-home-application-free-video.jpg"
+                src="/assets/img/habitacion_paint.jpg"
                 alt="Clean & Professional"
                 class="w-full h-48 object-cover rounded mb-4"
               />
@@ -438,7 +438,7 @@
             Reviews from Our Customers
           </h2>
 
-          <!-- Main carousel container -->
+          <!-- Contenedor principal del carrusel (mantiene la lógica de flechas) -->
           <div
             id="testimonialCarousel"
             class="testimonial-carousel-container relative max-w-3xl mx-auto"
@@ -447,16 +447,12 @@
             <div
               class="testimonial-slide absolute top-0 left-1/2 w-72 p-6 bg-gray-50 rounded-lg shadow text-center"
             >
-              <img
-                src="https://randomuser.me/api/portraits/men/1.jpg"
-                alt="Client"
-                class="mx-auto w-20 h-20 rounded-full mb-4 object-cover"
-              />
-              <h3 class="text-xl font-bold color-primary">John Doe</h3>
+              <!-- SIN foto -->
+              <h3 class="text-xl font-bold color-primary">Mmichael Smith</h3>
               <p class="text-sm color-secondary">
-                Service: Residential Painting
+                Service: Interior & Exterior Painting
               </p>
-              <!-- Star rating (5) -->
+              <!-- Calificación -->
               <p class="my-2">
                 <span class="star">&#9733;</span>
                 <span class="star">&#9733;</span>
@@ -465,7 +461,8 @@
                 <span class="star">&#9733;</span>
               </p>
               <p class="text-gray-600 italic">
-                “Excellent job! I was very satisfied with the outcome.”
+                “They gave my home a fresh new look, absolutely stunning
+                results!”
               </p>
             </div>
 
@@ -473,16 +470,10 @@
             <div
               class="testimonial-slide absolute top-0 left-1/2 w-72 p-6 bg-gray-50 rounded-lg shadow text-center"
             >
-              <img
-                src="https://randomuser.me/api/portraits/women/2.jpg"
-                alt="Client"
-                class="mx-auto w-20 h-20 rounded-full mb-4 object-cover"
-              />
-              <h3 class="text-xl font-bold color-primary">Jane Smith</h3>
-              <p class="text-sm color-secondary">
-                Service: Commercial Painting
-              </p>
-              <!-- Star rating (4) -->
+              <!-- SIN foto -->
+              <h3 class="text-xl font-bold color-primary">Emily Davis</h3>
+              <p class="text-sm color-secondary">Service: Custom Designs</p>
+              <!-- Calificación -->
               <p class="my-2">
                 <span class="star">&#9733;</span>
                 <span class="star">&#9733;</span>
@@ -491,7 +482,7 @@
                 <span class="text-gray-300">&#9733;</span>
               </p>
               <p class="text-gray-600 italic">
-                “Professional and punctual. Recommended for large jobs.”
+                “Their personalized approach truly made my space stand out.”
               </p>
             </div>
 
@@ -499,16 +490,12 @@
             <div
               class="testimonial-slide absolute top-0 left-1/2 w-72 p-6 bg-gray-50 rounded-lg shadow text-center"
             >
-              <img
-                src="https://randomuser.me/api/portraits/men/3.jpg"
-                alt="Client"
-                class="mx-auto w-20 h-20 rounded-full mb-4 object-cover"
-              />
-              <h3 class="text-xl font-bold color-primary">Carlos Pérez</h3>
+              <!-- SIN foto -->
+              <h3 class="text-xl font-bold color-primary">James Brown</h3>
               <p class="text-sm color-secondary">
-                Service: Remodeling & Renovations
+                Service: Surface Repair & Preparation
               </p>
-              <!-- Star rating (5) -->
+              <!-- Calificación -->
               <p class="my-2">
                 <span class="star">&#9733;</span>
                 <span class="star">&#9733;</span>
@@ -517,13 +504,36 @@
                 <span class="star">&#9733;</span>
               </p>
               <p class="text-gray-600 italic">
-                “My home looks completely different. Thank you for the attention
-                to detail.”
+                “Very professional, they made sure every surface was perfect
+                before painting.”
               </p>
             </div>
 
-            <!-- Previous button -->
+            <!-- Slide 4 (en español) -->
+            <div
+              class="testimonial-slide absolute top-0 left-1/2 w-72 p-6 bg-gray-50 rounded-lg shadow text-center"
+            >
+              <!-- SIN foto -->
+              <h3 class="text-xl font-bold color-primary">Carlos</h3>
+              <p class="text-sm color-secondary">
+                Service: Remodeling & Renovation
+              </p>
+              <!-- Calificación -->
+              <p class="my-2">
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+              </p>
+              <p class="text-gray-600 italic">
+                “Excelente trabajo, ¡justo lo que necesitaba! Muy recomendados.”
+              </p>
+            </div>
+
+            <!-- Botón anterior -->
             <button
+              style="top: 100px"
               id="prevBtn"
               class="absolute left-0 top-1/2 -translate-y-1/2 bg-gray-200 text-gray-700 p-3 rounded-full hover:bg-gray-300 transition-colors z-10 hidden md:block"
             >
@@ -543,8 +553,9 @@
               </svg>
             </button>
 
-            <!-- Next button -->
+            <!-- Botón siguiente -->
             <button
+              style="top: 100px"
               id="nextBtn"
               class="absolute right-0 top-1/2 -translate-y-1/2 bg-gray-200 text-gray-700 p-3 rounded-full hover:bg-gray-300 transition-colors z-10 hidden md:block"
             >
@@ -564,7 +575,6 @@
               </svg>
             </button>
           </div>
-          <!-- End main container -->
         </div>
       </section>
 
@@ -589,26 +599,29 @@
             >
               <h3 class="text-2xl font-bold color-primary mb-2">Our Office</h3>
               <p class="text-gray-600 mb-4">
-                1234 Main Street<br />
-                Houston, TX 77000<br />
-                United States
+                1346 NW Fourth St, Boca Ratón, FL 33486 Estados Unidos
               </p>
               <hr class="my-4" />
               <h4 class="text-xl font-semibold color-primary mb-2">Hours</h4>
-              <p class="text-gray-600">Mon - Fri: 8:00 AM - 6:00 PM</p>
-              <p class="text-gray-600">Sat: 9:00 AM - 2:00 PM</p>
+              <p class="text-gray-600">Mon - Fri: 8:00 AM - 5:00 PM</p>
+              <p class="text-gray-600">Sat: 8:00 AM - 3:00 PM</p>
               <p class="text-gray-600 mb-4">Sunday: Closed</p>
               <hr class="my-4" />
               <h4 class="text-xl font-semibold color-primary mb-2">Contact</h4>
-              <p class="text-gray-600">Phone: (123) 456-7890</p>
-              <p class="text-gray-600">Email: info@charispainting.com</p>
+              <p class="text-gray-600">
+                Phone: <br />
+                561-7100184 : English <br />
+                631-9035361 : Spanish
+              </p>
+              <p class="text-gray-600">Email: charispainting@aol.com</p>
+              <p>Owners: Jhon F. Cardona and Diana Cardona</p>
             </div>
 
             <!-- Right Column: Map, also centered -->
             <div class="w-full h-96">
               <iframe
                 class="w-full h-full rounded-lg shadow-md"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3168.9538011901975!2d-122.08385132359186!3d37.38605153974765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fbb01ed3fa2c7%3A0x166e63b622efbe59!2sGoogleplex!5e0!3m2!1ses-419!2sus!4v1606542398452!5m2!1ses-419!2sus"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3714.807864447516!2d-80.113636!3d26.3538989!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d91de40adc29e5%3A0xbe659e08cc73774c!2s1346%20NW%204th%20St%2C%20Boca%20Raton%2C%20FL%2033486%2C%20EE.%20UU.!5e1!3m2!1ses-419!2sco!4v1742591917903!5m2!1ses-419!2sco"
                 frameborder="0"
                 allowfullscreen
                 loading="lazy"
@@ -618,6 +631,7 @@
         </div>
       </section>
 
+      <!-- Galería con Lightbox/Modal -->
       <!-- Galería con Lightbox/Modal -->
       <section id="gallery" class="py-12 px-4 bg-gray-50">
         <div class="max-w-7xl mx-auto">
@@ -636,11 +650,11 @@
             <!-- Item 1 -->
             <div
               class="w-full h-60 overflow-hidden rounded cursor-pointer"
-              onclick="showModal('https://www.repro-tableaux.com/kunst/edouard_manet_739/Landhaus-in-Rueil.jpg')"
+              onclick="showModal('./assets/img/baño_remodeling5.jpg')"
             >
               <img
-                src="https://www.repro-tableaux.com/kunst/edouard_manet_739/Landhaus-in-Rueil.jpg"
-                alt="Proyecto 1"
+                src="./assets/img/baño_remodeling5.jpg"
+                alt="Bathroom Remodeling"
                 class="w-full h-full object-cover transform transition-transform duration-300 hover:scale-105"
               />
             </div>
@@ -648,11 +662,11 @@
             <!-- Item 2 -->
             <div
               class="w-full h-60 overflow-hidden rounded cursor-pointer"
-              onclick="showModal('https://www.repro-tableaux.com/kunst/edouard_manet_739/Landhaus-in-Rueil.jpg')"
+              onclick="showModal('./assets/img/habitacion_paint.jpg')"
             >
               <img
-                src="https://www.repro-tableaux.com/kunst/edouard_manet_739/Landhaus-in-Rueil.jpg"
-                alt="Proyecto 2"
+                src="./assets/img/habitacion_paint.jpg"
+                alt="Room Painting"
                 class="w-full h-full object-cover transform transition-transform duration-300 hover:scale-105"
               />
             </div>
@@ -660,16 +674,50 @@
             <!-- Item 3 -->
             <div
               class="w-full h-60 overflow-hidden rounded cursor-pointer"
-              onclick="showModal('https://www.repro-tableaux.com/kunst/edouard_manet_739/Landhaus-in-Rueil.jpg')"
+              onclick="showModal('./assets/img/remodeling2.jpg')"
             >
               <img
-                src="https://www.repro-tableaux.com/kunst/edouard_manet_739/Landhaus-in-Rueil.jpg"
-                alt="Proyecto 3"
+                src="./assets/img/remodeling2.jpg"
+                alt="Remodeling Project"
                 class="w-full h-full object-cover transform transition-transform duration-300 hover:scale-105"
               />
             </div>
 
-            <!-- Repite más items si gustas -->
+            <!-- Item 4 -->
+            <div
+              class="w-full h-60 overflow-hidden rounded cursor-pointer"
+              onclick="showModal('./assets/img/pintura1.jpg')"
+            >
+              <img
+                src="./assets/img/pintura1.jpg"
+                alt="Painting Detail"
+                class="w-full h-full object-cover transform transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+
+            <!-- Item 5 -->
+            <div
+              class="w-full h-60 overflow-hidden rounded cursor-pointer"
+              onclick="showModal('./assets/img/baño_remodeling3.jpg')"
+            >
+              <img
+                src="./assets/img/baño_remodeling3.jpg"
+                alt="Bathroom Project"
+                class="w-full h-full object-cover transform transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+
+            <!-- Item 6 -->
+            <div
+              class="w-full h-60 overflow-hidden rounded cursor-pointer"
+              onclick="showModal('./assets/img/tejado.jpg')"
+            >
+              <img
+                src="./assets/img/tejado.jpg"
+                alt="Roof Painting"
+                class="w-full h-full object-cover transform transition-transform duration-300 hover:scale-105"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -680,9 +728,10 @@
         class="hidden fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
       >
         <!-- Contenedor de la imagen y botón de cierre -->
-        <div class="relative max-w-4xl mx-auto px-4">
-          <!-- Botón de Cerrar (esquina superior derecha) -->
+        <div style="max-height: 100vh" class="relative max-w-4xl mx-auto px-4">
+          <!-- Botón de Cerrar -->
           <button
+            style="border-radius: 3px"
             class="absolute top-0 right-0 mr-4 text-white text-3xl font-bold focus:outline-none bg-color-primary rounded-lg w-10 h-10 opacity-80 flex items-center justify-center"
             onclick="closeModal()"
           >
@@ -704,13 +753,116 @@
 
           <!-- Imagen en grande -->
           <img
+            style="max-height: 100vh"
             id="modalImage"
             src=""
-            alt="Imagen grande"
+            alt="Large Image"
             class="w-full h-auto rounded shadow-lg"
           />
         </div>
       </div>
+
+      <!-- Contact Section -->
+      <section id="contact" class="py-12 px-4 bg-gray-100">
+        <div class="max-w-4xl mx-auto">
+          <h2
+            class="text-3xl md:text-4xl font-bold mb-8 text-center color-primary"
+          >
+            Contact Us
+          </h2>
+          <form id="contactForm" class="space-y-6">
+            <!-- Name -->
+            <div>
+              <label for="name" class="block mb-2 font-semibold text-gray-700">
+                Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-color-primary"
+              />
+            </div>
+
+            <!-- Phone -->
+            <div>
+              <label for="phone" class="block mb-2 font-semibold text-gray-700">
+                Phone
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                required
+                class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-color-primary"
+              />
+            </div>
+
+            <!-- Service (select) -->
+            <div>
+              <label
+                for="service"
+                class="block mb-2 font-semibold text-gray-700"
+              >
+                Which service are you interested in?
+              </label>
+              <select
+                id="service"
+                name="service"
+                required
+                class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-color-primary"
+              >
+                <option value="" disabled selected>Select a service</option>
+                <option value="Interior & Exterior Painting">
+                  Interior & Exterior Painting
+                </option>
+                <option value="Remodeling & Renovation">
+                  Remodeling & Renovation
+                </option>
+                <option value="Surface Repair & Preparation">
+                  Surface Repair & Preparation
+                </option>
+                <option value="Custom Designs">Custom Designs</option>
+                <option value="Clean & Professional">
+                  Clean & Professional
+                </option>
+              </select>
+            </div>
+
+            <!-- Email -->
+            <div>
+              <label for="email" class="block mb-2 font-semibold text-gray-700">
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-color-primary"
+              />
+            </div>
+
+            <!-- Submit -->
+            <button
+              type="submit"
+              class="bg-color-primary hover:bg-color-secondary text-white font-bold py-2 px-6 rounded focus:outline-none focus:ring-2 focus:ring-color-secondary"
+            >
+              Send
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="bg-color-secondary py-6 text-white text-center">
+        <div class="max-w-7xl mx-auto px-4">
+          <p class="text-sm md:text-base">
+            &copy; 2023 Charis - Painting & Remodeling. All rights reserved.
+          </p>
+        </div>
+      </footer>
     </div>
     <!-- Fin de pageWrapper -->
 
