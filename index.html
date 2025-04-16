@@ -2,175 +2,99 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Charis - Painting & Remodeling</title>
+    <title>
+      Charis Painting & Remodeling | Expert Painting & Renovation Services
+    </title>
 
-    <!-- Fuente Montserrat -->
+    <!-- Meta SEO Essentials -->
+    <meta
+      name="description"
+      content="Charis Painting & Remodeling provides top-quality painting, remodeling, and surface preparation services in Boca Raton, FL. Licensed, insured, and committed to excellence."
+    />
+    <meta
+      name="keywords"
+      content="painting, remodeling, renovation, Boca Raton, surface repair, custom designs, professional painting"
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://charispainting.net/" />
+
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="Charis Painting & Remodeling | Expert Painting & Renovation Services"
+    />
+    <meta
+      property="og:description"
+      content="Charis Painting & Remodeling provides top-quality painting, remodeling, and surface preparation services in Boca Raton, FL. Licensed, insured, and committed to excellence."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://charispainting.net/" />
+    <meta
+      property="og:image"
+      content="https://charispainting.net/assets/img/logo.png"
+    />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Charis Painting & Remodeling | Expert Painting & Renovation Services"
+    />
+    <meta
+      name="twitter:description"
+      content="Charis Painting & Remodeling provides top-quality painting, remodeling, and surface preparation services in Boca Raton, FL. Licensed, insured, and committed to excellence."
+    />
+    <meta
+      name="twitter:image"
+      content="https://charispainting.net/assets/img/logo.png"
+    />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Charis Painting & Remodeling",
+        "image": "https://charispainting.net/assets/img/logo.png",
+        "telephone": "+1-561-710-0184",
+        "email": "charispainting@aol.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "1346 NW Fourth St",
+          "addressLocality": "Boca Raton",
+          "addressRegion": "FL",
+          "postalCode": "33486",
+          "addressCountry": "US"
+        },
+        "url": "https://charispainting.net/",
+        "priceRange": "$$",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5",
+          "reviewCount": "150"
+        },
+        "areaServed": "Boca Raton, FL"
+      }
+    </script>
+
+    <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="icon" type="image/svg+xml" href="./assets/img/logo.ico" />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" type="image/svg+xml" href="./assets/img/logo.ico" />
 
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS CDN -->
     <link
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
     />
 
-    <!-- Estilos personalizados o en un .css aparte -->
-    <style>
-      /* ------------------------------------------------------------------
-         Fuente base
-      ------------------------------------------------------------------ */
-      body {
-        font-family: "Montserrat", sans-serif;
-      }
-
-      /* ------------------------------------------------------------------
-         Clases de color (puedes ajustarlas si gustas)
-      ------------------------------------------------------------------ */
-      .color-primary {
-        color: #456aac;
-      }
-      .color-secondary {
-        color: #2a3b5b;
-      }
-      .bg-color-primary {
-        background-color: #456aac;
-      }
-      .bg-color-secondary {
-        background-color: #2a3b5b;
-      }
-
-      .bg-white-transparent {
-        background-color: rgba(255, 255, 255, 0.9);
-      }
-
-      /* ------------------------------------------------------------------
-         Preloader (transición de "pintura")
-      ------------------------------------------------------------------ */
-      #preloader {
-        animation: removePaint 1s ease-in-out forwards;
-        animation-delay: 1s; /* Retrasa el inicio de la animación por 1 segundo */
-        z-index: 50;
-      }
-      @keyframes removePaint {
-        0% {
-          transform: translateY(0);
-        }
-        100% {
-          transform: translateY(-100%);
-        }
-      }
-
-      /* ------------------------------------------------------------------
-         Hero con zoom out suave
-      ------------------------------------------------------------------ */
-      .hero-image {
-        transform: scale(1.1);
-        transition: transform 1.8s ease-in-out;
-      }
-      .hero-loaded {
-        transform: scale(1);
-      }
-
-      /* ------------------------------------------------------------------
-         Header
-         - Se oculta al scrollear hacia abajo (usamos -translate-y-full).
-         - Se muestra al scrollear hacia arriba.
-         - Transición suave en transform, background, etc.
-      ------------------------------------------------------------------ */
-      .header-transition {
-        transition: background-color 0.3s ease-in-out,
-          backdrop-filter 0.3s ease-in-out, transform 0.3s ease-in-out;
-      }
-
-      /* ------------------------------------------------------------------
-         Diferentes estados del header
-      ------------------------------------------------------------------ */
-
-      /* Cuando el header está sobre el hero:
-         - Todo se ve en blanco (logo, links).
-         - Usamos un "filtro" al logo para que se vea blanco
-           incluso si su imagen original es azul.
-      */
-      .on-hero a,
-      .on-hero button,
-      .on-hero li {
-        color: #fff !important;
-      }
-      .logo-white {
-        filter: brightness(0) invert(1); /* Convierte una imagen azul a blanco */
-      }
-
-      /* ------------------------------------------------------------------
-         Menú y contenido "off-canvas" en mobile
-      ------------------------------------------------------------------ */
-      /* El contenedor principal que será "empujado" */
-      #pageWrapper {
-        transition: transform 0.3s ease-in-out; /* Suave */
-      }
-
-      /* Menú hamburguesa deslizable a la derecha,
-         por defecto está oculto (translateX(100%)) */
-      #mobileNav {
-        width: 50%; /* Ocupa la mitad derecha en mobile */
-        transition: transform 0.3s ease-in-out;
-        transform: translateX(100%);
-      }
-      /* Ajustes al contenedor */
-      .testimonial-carousel-container {
-        height: 300px; /* Altura fija en escritorio */
-      }
-
-      /* Slides con transiciones suaves */
-      .testimonial-slide {
-        transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-        opacity: 0;
-      }
-
-      /* Posiciones 3D en escritorio */
-      .slide-center {
-        opacity: 1;
-        transform: translateX(-50%) scale(1);
-        z-index: 10;
-      }
-      .slide-left {
-        opacity: 0.7;
-        transform: translateX(-170%) scale(0.8);
-        z-index: 5;
-      }
-      .slide-right {
-        opacity: 0.7;
-        transform: translateX(70%) scale(0.8);
-        z-index: 5;
-      }
-
-      /* MEDIA QUERY para pantallas <= 767px (móvil) */
-      @media (max-width: 767px) {
-        .testimonial-carousel-container {
-          height: auto; /* Se adapta al contenido */
-        }
-        .testimonial-slide {
-          position: static; /* Quita el absolute */
-          transform: none; /* Sin transform */
-          opacity: 1; /* Todas visibles */
-          margin: 0 auto 1.5rem;
-          width: 100%; /* Ocupa todo el ancho (o ajusta a tu gusto) */
-          max-width: 400px; /* Ancho máximo */
-        }
-        /* Quita las clases 3D en móvil (o déjalas inoperantes) */
-        .slide-left,
-        .slide-center,
-        .slide-right {
-          transform: none !important;
-          opacity: 1 !important;
-        }
-      }
-    </style>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
 
   <body class="overflow-x-hidden">
