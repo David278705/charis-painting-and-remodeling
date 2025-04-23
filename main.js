@@ -167,7 +167,7 @@ window.addEventListener("DOMContentLoaded", () => {
       event.preventDefault(); // Prevents page reload
 
       // Replace this with YOUR actual Formspree endpoint
-      const formspreeEndpoint = "https://formspree.io/f/mpwppkaq";
+      const formspreeEndpoint = "https://formspree.io/f/xzzrbrww";
 
       const form = event.target;
       const formData = new FormData(form);

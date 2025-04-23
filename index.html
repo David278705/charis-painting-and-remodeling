@@ -92,6 +92,12 @@
       rel="stylesheet"
     />
 
+    <!-- GLightbox CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
+    />
+
     <!-- Custom Styles -->
     <link rel="stylesheet" href="css/styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -283,7 +289,7 @@
             <!-- Card 1 -->
             <div class="bg-white rounded shadow p-6 text-center">
               <img
-                src="./assets/img/tejado.jpg"
+                src="./assets/img/exterior_painting.webp"
                 alt="Interior & Exterior Painting"
                 class="w-full h-48 object-cover rounded mb-4"
               />
@@ -299,7 +305,7 @@
             <!-- Card 2 -->
             <div class="bg-white rounded shadow p-6 text-center">
               <img
-                src="./assets/img/baño_remodeling5.jpg"
+                src="./assets/img/baño_remodeling4.jpg"
                 alt="Remodeling & Renovation"
                 class="w-full h-48 object-cover rounded mb-4"
               />
@@ -564,11 +570,9 @@
         </div>
       </section>
 
-      <!-- Galería con Lightbox/Modal -->
-      <!-- Galería con Lightbox/Modal -->
+      <!-- Galería dinámica -->
       <section id="gallery" class="py-12 px-4 bg-gray-50">
         <div class="max-w-7xl mx-auto">
-          <!-- Título -->
           <h2
             class="text-3xl md:text-4xl font-bold text-center color-primary mb-6"
           >
@@ -577,123 +581,13 @@
           <p class="text-center text-gray-600 mb-8">
             Some of our most recent projects
           </p>
-
-          <!-- Grid de imágenes -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            <!-- Item 1 -->
-            <div
-              class="w-full h-60 overflow-hidden rounded cursor-pointer"
-              onclick="showModal('./assets/img/baño_remodeling5.jpg')"
-            >
-              <img
-                src="./assets/img/baño_remodeling5.jpg"
-                alt="Bathroom Remodeling"
-                class="w-full h-full object-cover transform transition-transform duration-300 hover:scale-105"
-              />
-            </div>
-
-            <!-- Item 2 -->
-            <div
-              class="w-full h-60 overflow-hidden rounded cursor-pointer"
-              onclick="showModal('./assets/img/habitacion_paint.jpg')"
-            >
-              <img
-                src="./assets/img/habitacion_paint.jpg"
-                alt="Room Painting"
-                class="w-full h-full object-cover transform transition-transform duration-300 hover:scale-105"
-              />
-            </div>
-
-            <!-- Item 3 -->
-            <div
-              class="w-full h-60 overflow-hidden rounded cursor-pointer"
-              onclick="showModal('./assets/img/remodeling2.jpg')"
-            >
-              <img
-                src="./assets/img/remodeling2.jpg"
-                alt="Remodeling Project"
-                class="w-full h-full object-cover transform transition-transform duration-300 hover:scale-105"
-              />
-            </div>
-
-            <!-- Item 4 -->
-            <div
-              class="w-full h-60 overflow-hidden rounded cursor-pointer"
-              onclick="showModal('./assets/img/pintura1.jpg')"
-            >
-              <img
-                src="./assets/img/pintura1.jpg"
-                alt="Painting Detail"
-                class="w-full h-full object-cover transform transition-transform duration-300 hover:scale-105"
-              />
-            </div>
-
-            <!-- Item 5 -->
-            <div
-              class="w-full h-60 overflow-hidden rounded cursor-pointer"
-              onclick="showModal('./assets/img/baño_remodeling3.jpg')"
-            >
-              <img
-                src="./assets/img/baño_remodeling3.jpg"
-                alt="Bathroom Project"
-                class="w-full h-full object-cover transform transition-transform duration-300 hover:scale-105"
-              />
-            </div>
-
-            <!-- Item 6 -->
-            <div
-              class="w-full h-60 overflow-hidden rounded cursor-pointer"
-              onclick="showModal('./assets/img/tejado.jpg')"
-            >
-              <img
-                src="./assets/img/tejado.jpg"
-                alt="Roof Painting"
-                class="w-full h-full object-cover transform transition-transform duration-300 hover:scale-105"
-              />
-            </div>
-          </div>
+          <!-- Aquí se inyectarán thumbnails -->
+          <div
+            id="galleryWrapper"
+            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"
+          ></div>
         </div>
       </section>
-
-      <!-- Modal (Oculto por defecto con "hidden") -->
-      <div
-        id="galleryModal"
-        class="hidden fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
-      >
-        <!-- Contenedor de la imagen y botón de cierre -->
-        <div style="max-height: 100vh" class="relative max-w-4xl mx-auto px-4">
-          <!-- Botón de Cerrar -->
-          <button
-            style="border-radius: 3px"
-            class="absolute top-0 right-0 mr-4 text-white text-3xl font-bold focus:outline-none bg-color-primary rounded-lg w-10 h-10 opacity-80 flex items-center justify-center"
-            onclick="closeModal()"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-7"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M6 18 18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
-
-          <!-- Imagen en grande -->
-          <img
-            style="max-height: 100vh"
-            id="modalImage"
-            src=""
-            alt="Large Image"
-            class="w-full h-auto rounded shadow-lg"
-          />
-        </div>
-      </div>
 
       <!-- Contact Section -->
       <section id="contact" class="py-12 px-4 bg-gray-100">
@@ -862,20 +756,137 @@
       </ul>
     </div>
 
+    <!-- GLightbox JS -->
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+
     <!-- Script principal -->
     <script>
-      function showModal(imageSrc) {
-        const modal = document.getElementById("galleryModal");
-        const modalImg = document.getElementById("modalImage");
-        modalImg.src = imageSrc;
-        modal.classList.remove("hidden");
-      }
+      // 1) Define tu array de items (images o videos)
+      const galleryItems = [
+        {
+          href: "./assets/img/gallery/3.webp",
+          type: "image",
+          title: "Bathroom Remodeling",
+        },
+        {
+          href: "./assets/img/gallery/4.webp",
+          type: "image",
+          title: "Kitchen Remodeling",
+        },
+        {
+          href: "./assets/img/gallery/5.webp",
+          type: "image",
+          title: "Bathroom Remodeling",
+        },
+        {
+          href: "./assets/img/gallery/7.webp",
+          type: "image",
+          title: "Bathroom Remodeling",
+        },
+        {
+          href: "./assets/img/gallery/8.webp",
+          type: "image",
+          title: "Kitchen Remodeling",
+        },
+        {
+          href: "./assets/img/gallery/9.webp",
+          type: "image",
+          title: "Bathroom Remodeling",
+        },
+        {
+          href: "./assets/img/gallery/10.webp",
+          type: "image",
+          title: "Kitchen Remodeling",
+        },
+        {
+          href: "./assets/img/gallery/11.webp",
+          type: "image",
+          title: "Bathroom Remodeling",
+        },
+        {
+          href: "./assets/img/gallery/12.webp",
+          type: "image",
+          title: "Kitchen Remodeling",
+        },
+        {
+          href: "./assets/img/gallery/13.webp",
+          type: "image",
+          title: "Bathroom Remodeling",
+        },
+        {
+          href: "./assets/img/gallery/14.webp",
+          type: "image",
+          title: "Kitchen Remodeling",
+        },
+        {
+          href: "./assets/img/gallery/15.webp",
+          type: "image",
+          title: "Bathroom Remodeling",
+        },
+        {
+          href: "./assets/img/gallery/16.webp",
+          type: "image",
+          title: "Kitchen Remodeling",
+        },
+        {
+          href: "./assets/img/gallery/17.webp",
+          type: "image",
+          title: "Bathroom Remodeling",
+        },
+        {
+          href: "./assets/img/gallery/18.webp",
+          type: "image",
+          title: "Kitchen Remodeling",
+        },
+        {
+          href: "./assets/img/gallery/19.webp",
+          type: "image",
+          title: "Bathroom Remodeling",
+        },
+        {
+          href: "./assets/img/gallery/20.webp",
+          type: "image",
+          title: "Kitchen Remodeling",
+        },
+        {
+          href: "./assets/img/gallery/21.mov",
+          type: "video",
+          thumbnail: "./assets/img/gallery/21.webp",
+          title: "Kitchen Remodeling",
+        },
+      ];
 
-      function closeModal() {
-        const modal = document.getElementById("galleryModal");
-        modal.classList.add("hidden");
-      }
+      // 2) Construye el grid de thumbnails
+      const wrapper = document.getElementById("galleryWrapper");
+      galleryItems.forEach((item) => {
+        const a = document.createElement("a");
+        a.href = item.href;
+        a.className =
+          "glightbox block w-full h-60 overflow-hidden rounded cursor-pointer";
+        a.setAttribute("data-gallery", "charis");
+        a.setAttribute("data-type", item.type);
+        a.setAttribute("data-title", item.title);
+
+        const img = document.createElement("img");
+        img.src = item.thumbnail || item.href; // usa la miniatura si existe
+        img.alt = item.title;
+        img.className =
+          "w-full h-full object-cover transform transition-transform duration-300 hover:scale-105";
+
+        a.appendChild(img);
+        wrapper.appendChild(a);
+      });
+
+      // 3) Inicializa GLightbox
+      const lightbox = GLightbox({
+        selector: ".glightbox",
+        openEffect: "fade", // efecto de apertura
+        slideEffect: "slide", // efecto de slide
+        loop: true,
+        autoplayVideos: true,
+      });
     </script>
+
     <script src="main.js"></script>
   </body>
 </html>
