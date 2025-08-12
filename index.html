@@ -583,9 +583,7 @@
             Some of our most recent projects
           </p>
           <!-- Aquí se inyectarán thumbnails -->
-          <div
-            id="galleryWrapper"
-            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"
+          <div id="galleryWrapper" class="masonry"></div>
           ></div>
         </div>
       </section>
@@ -765,6 +763,21 @@
       // 1) Define tu array de items (images o videos)
       const galleryItems = [
         {
+          href: "./assets/img/gallery/new1.jpeg",
+          type: "image",
+          title: "Before and After",
+        },
+        {
+          href: "./assets/img/gallery/new2.jpeg",
+          type: "image",
+          title: "Before and After",
+        },
+        {
+          href: "./assets/img/gallery/new3.jpeg",
+          type: "image",
+          title: "Before and After",
+        },
+        {
           href: "./assets/img/gallery/3.webp",
           type: "image",
           title: "Bathroom Remodeling",
@@ -857,22 +870,23 @@
         },
       ];
 
+      
+
       // 2) Construye el grid de thumbnails
       const wrapper = document.getElementById("galleryWrapper");
       galleryItems.forEach((item) => {
         const a = document.createElement("a");
         a.href = item.href;
-        a.className =
-          "glightbox block w-full h-60 overflow-hidden rounded cursor-pointer";
+        a.className = "glightbox masonry-item cursor-pointer";
         a.setAttribute("data-gallery", "charis");
         a.setAttribute("data-type", item.type);
-        <!-- a.setAttribute("data-title", item.title); -->
 
         const img = document.createElement("img");
-        img.src = item.thumbnail || item.href; // usa la miniatura si existe
-        img.alt = item.title;
-        img.className =
-          "w-full h-full object-cover transform transition-transform duration-300 hover:scale-105";
+        img.src = item.thumbnail || item.href;
+        img.alt = item.title || "Gallery image";
+        img.loading = "lazy";
+        img.decoding = "async";
+        img.sizes = "(min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw";
 
         a.appendChild(img);
         wrapper.appendChild(a);
